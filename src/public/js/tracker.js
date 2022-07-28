@@ -63,6 +63,7 @@ function initialize(){
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(sendData),
             success: (data) => {
+                $("#message").text( "POINT ADDED " +sendData.latitude);
                 console.log(data)
             }
           })
@@ -77,9 +78,16 @@ function initialize(){
             type: 'DELETE',
             contentType: "application/json; charset=utf-8",
             success: (data) => {
-                console.log(data)
+                $("#message").text( "DELETED POINTS!!!" );
             }
           })
+    }
+    function reset(){
+        points = [];
+        index = 0;
+        size = 0;
+        initialize();
+        $("#message").text( "RESET!!!");
     }
 
     function getFormattedDate() {
